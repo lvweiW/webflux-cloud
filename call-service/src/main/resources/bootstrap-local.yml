@@ -1,0 +1,14 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        watch:
+          enabled: false
+        namespace: 9072a84b-ca8f-4aa0-8963-fd885db8047e
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        namespace: 9072a84b-ca8f-4aa0-8963-fd885db8047e

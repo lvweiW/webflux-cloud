@@ -1,0 +1,41 @@
+server:
+  shutdown: graceful
+spring:
+  profiles:
+    active: local
+  application:
+    name: accept-service
+  lifecycle:
+    timeout-per-shutdown-phase: 60s
+knife4j:
+  enable: true # 是否开启Knife4j增强模式
+  documents: # 自定义文档集合，该属性是数组
+    - group: accept-service # 所属分组
+      name: 文档说明 # 类似于接口中的tag,对于自定义文档的分组
+      locations: classpath:markdowns/* # markdown文件路径,可以是一个文件夹(classpath:markdowns/*)，也可以是单个文件(classpath:md/sign.md)
+  setting:
+    language: zh-CN # Ui默认显示语言,目前主要有两种:中文(zh-CN)、英文(en-US)
+    enableSwaggerModels: true # 是否显示界面中SwaggerModel功能
+    enableDocumentManage: true # 是否显示界面中"文档管理"功能
+    swaggerModelName: 实体类列表 # 重命名SwaggerModel名称,默认
+    enableVersion: false # 是否开启界面中对某接口的版本控制,如果开启，后端变化后Ui界面会存在小蓝点
+    enableReloadCacheParameter: false # 是否在每个Debug调试栏后显示刷新变量按钮,默认不显示
+    enableAfterScript: true # 调试Tab是否显示AfterScript功能,默认开启
+    enableFilterMultipartApiMethodType: POST # 具体接口的过滤类型
+    enableFilterMultipartApis: false # 针对RequestMapping的接口请求类型,在不指定参数类型的情况下,如果不过滤,默认会显示7个类型的接口地址参数,如果开启此配置,默认展示一个Post类型的接口地址
+    enableRequestCache: true # 是否开启请求参数缓存
+    enableHost: false # 是否启用Host
+    enableHostText: 192.168.0.193:8000 #
+    enableHomeCustom: true # 是否开启自定义主页内容
+    homeCustomLocation: classpath:markdown/home.md # 主页内容Markdown文件路径
+    enableSearch: false # 是否禁用Ui界面中的搜索框
+    enableFooter: false # 是否显示Footer
+    enableFooterCustom: true # 是否开启自定义Footer
+    footerCustomContent: Copyright  2020-[上海臻客信息技术有限公司](https://gitee.com/xiaoym/knife4j) # 自定义Footer内容
+    enableDynamicParameter: false # 是否开启动态参数调试功能
+    enableDebug: true # 启用调试
+    enableOpenApi: false # 显示OpenAPI规范
+    enableGroup: true # 显示服务分组
+  cors: false # 是否开启一个默认的跨域配置,该功能配合自定义Host使用
+  production: false # 是否开启生产环境保护策略,详情参考文档 https://doc.xiaominfo.com/knife4j/documentation/accessControl.html
+
